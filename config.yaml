@@ -4,7 +4,7 @@ master:
   username: "mayankarya"
   password: "mayankorin7"
   work_dir: "/media/ssd/AgentMesh"
-  python_env: "/home/mayankarya/distributed/"
+  python_env: "/home/mayankarya/distributed/bin/activate"
   hf_cache: "/media/ssd/huggingface_cache"
 
 
@@ -13,12 +13,12 @@ workers:
     username: "mayankarya"
     password: "mayankorin6"
     work_dir: "/media/ssd/AgentMesh"
-    python_env: "/home/mayankarya/distributed/"
+    python_env: "/home/mayankarya/distributed/bin/activate"
     hf_cache: "/media/ssd/huggingface_cache"
 
-  - ip: "10.24.24.49"
-    username: "mayankarya"
-    password: "mayankagx5"
-    work_dir: "/media/ssd/AgentMesh"
-    python_env: "/home/mayankarya/distributed/"
-    hf_cache: "/media/ssd/huggingface_cache"
+  # - ip: "10.24.24.49"
+  #   username: "mayankarya"
+  #   password: "mayankagx5"
+  #   work_dir: "/media/ssd/AgentMesh"
+  #   python_env: "/home/mayankarya/distributed/bin/activate"
+  #   hf_cache: "/media/ssd/huggingface_cache"

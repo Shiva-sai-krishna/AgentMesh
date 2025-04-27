@@ -31,15 +31,25 @@ def setup_worker(device_info, master_addr, master_port, world_size, rank):
     python_env = device_info["python_env"]
     hf_cache = device_info["hf_cache"]
 
-    command = f"""
+    session_name = f"agentmesh"
+    
+    full_command = f"""
     cd {work_dir} && \
     export MASTER_ADDR={master_addr} && \
     export MASTER_PORT={master_port} && \
     export WORLD_SIZE={world_size} && \
     export RANK={rank} && \
+    export HF_HOME={hf_cache} && \
     source {python_env} && \
     python3 worker.py
     """
+
+    command = f"""
+    tmux has-session -t {session_name} || tmux new-session -d -s {session_name} && \
+    tmux send-keys -t {session_name} "{full_command}" C-m"""
+
+
+
     ssh_run_command(ip, username, password, command)
 
 def setup_master(device_info, master_addr, master_port, world_size, rank):
@@ -48,36 +58,39 @@ def setup_master(device_info, master_addr, master_port, world_size, rank):
     password = device_info["password"]
     work_dir = device_info["work_dir"]
     python_env = device_info["python_env"]
+    hf_cache = device_info["hf_cache"]
 
-    # Check if we are already on master
+    session_name = "agentmesh"
+
+    # Get local IP
     local_ip = socket.gethostbyname(socket.gethostname())
 
-    if local_ip == master_addr :
-        # Run locally
-        print("[Client] Running master.py locally.")
-        os.chdir(work_dir)
-        os.environ["MASTER_ADDR"] = master_addr
-        os.environ["MASTER_PORT"] = str(master_port)
-        os.environ["WORLD_SIZE"] = str(world_size)
-        os.environ["RANK"] = str(rank)
+    full_command = f"""
+    cd {work_dir} && \
+    export MASTER_ADDR={master_addr} && \
+    export MASTER_PORT={master_port} && \
+    export WORLD_SIZE={world_size} && \
+    export RANK={rank} && \
+    export HF_HOME={hf_cache} && \
+    source {python_env} && \
+    python3 master.py
+    """
 
-        os.system(f"{python_env} master.py")
+    command = f"""
+    tmux has-session -t {session_name} || tmux new-session -d -s {session_name} && \
+    tmux send-keys -t {session_name} "{full_command}" C-m"""
+
+    if local_ip == master_addr:
+        # Run locally
+        print("[Client] Running master.py locally in tmux.")
+        os.system(command)
     else:
-        # SSH into master node
-        print("[Client] SSH into master to run master.py")
-        command = f"""
-        cd {work_dir} && \
-        export MASTER_ADDR={master_addr} && \
-        export MASTER_PORT={master_port} && \
-        export WORLD_SIZE={world_size} && \
-        export RANK={rank} && \
-        {python_env} master.py
-        """
+        # SSH and run remotely
+        print("[Client] SSH into master to run master.py in tmux.")
         ssh_run_command(ip, username, password, command)
 
 def main():
     config = load_config()
-
     master_addr = config["master"]["ip"]
     master_port = config["master"]["port"]
     devices = config["workers"]
@@ -85,17 +98,13 @@ def main():
     world_size = len(devices) + 1  # workers + master
     threads = []
 
-    # Setup workers
+    # Setup workers (rank != 0)
     for rank, device in enumerate(devices, start=1):
         thread = threading.Thread(target=setup_worker, args=(device, master_addr, master_port, world_size, rank))
         thread.start()
         threads.append(thread)
 
-    # Wait for all worker nodes to be ready
-    for thread in threads:
-        thread.join()
-
-    # Now setup master (rank 0)
+    # Setup master (rank 0)
     master_device_info = {
         "ip": master_addr,
         "username": config["master"]["username"],
