@@ -25,14 +25,15 @@ if __name__ == "__main__":
     print(f"[Rank {rank}] Model built successfully.")
 
     hidden = recv_tensor(src=src, dtype=torch.float32).to(device)
-    print(f"[Rank {rank}] Receiving prefill hidden")
+    print(f"[Rank {rank}] Received prefill hidden")
 
     cache = []
-    for _ in range(model.config.n_layer // 2):
+    print(f"[Rank {rank}] cache initialized")
+    for _ in range(model.config.n_layer // world):
         k = recv_tensor(src=src, dtype=torch.float32).to(device)
         v = recv_tensor(src=src, dtype=torch.float32).to(device)
         cache.append((k,v))
-    print(f"[Rank {rank}] Receiving prefill cache")
+    print(f"[Rank {rank}] Received prefill cache")
 
     outputs = model(inputs_embeds=hidden.to("cuda:0"), past_key_values=cache, use_cache=True, return_dict=True)
     print(f"[Rank {rank}] Model forward pass completed")
@@ -62,7 +63,7 @@ if __name__ == "__main__":
         print(f"[Rank {rank}] Waiting for step {step+1}")
         hidden = recv_tensor(src=src, dtype=torch.float32).to(device)
         cache = []
-        for _ in range(model.config.n_layer // 2):
+        for _ in range(model.config.n_layer // world):
             k = recv_tensor(src=src, dtype=torch.float32).to(device)
             v = recv_tensor(src=src, dtype=torch.float32).to(device)
             cache.append((k, v))
