@@ -31,15 +31,10 @@ def partition_layers(num_layers: int, world_size: int, rank: int):
 
 def build_local_model_gpt2xl(rank: int, world_size: int, cache_dir: str):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    full = GPT2LMHeadModel.from_pretrained("gpt2-xl",cache_dir=cache_dir, torch_dtype=torch.float16)
+    full = GPT2LMHeadModel.from_pretrained("gpt2-xl",cache_dir=cache_dir)
     blocks = full.transformer.h
     start, end = partition_layers(len(blocks), world_size, rank)
     full.transformer.h = torch.nn.ModuleList(blocks[start:end])
-
-    if rank != 0:
-        del full.transformer.wte
-        del full.transformer.wpe
-        del full.transformer.drop
  
     def _id(name):
         setattr(full, name, torch.nn.Identity())
