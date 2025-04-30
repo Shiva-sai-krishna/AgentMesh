@@ -29,9 +29,7 @@ if __name__ == "__main__":
         
         outputs = model(inputs, use_cache=True, return_dict=True, output_hidden_states=True)
         print(f"[Rank {rank}] Model forward pass completed")
-
-        print(f"[Rank {rank}] types : {type(outputs)}, {type(outputs.hidden_states)}, {type(outputs.past_key_values)}")
-
+        
         hidden  = outputs.hidden_states[-1]
         cache  = outputs.past_key_values
 

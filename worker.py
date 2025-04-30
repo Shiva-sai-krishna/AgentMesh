@@ -36,9 +36,8 @@ if __name__ == "__main__":
         cache.append((k,v))
     print(f"[Rank {rank}] Received prefill cache")
 
-    outputs = model(inputs_embeds=hidden.to("cuda:0"), past_key_values=cache, use_cache=True, return_dict=True)
+    outputs = model(inputs_embeds=hidden.to("cuda:0"), past_key_values=cache, use_cache=True, return_dict=True, output_hidden_states=True)
     print(f"[Rank {rank}] Model forward pass completed")
-    
 
     if rank == world - 1 : 
         logits = outputs.logits
