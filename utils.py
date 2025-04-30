@@ -9,9 +9,20 @@ def setup():
         rank=int(os.environ["RANK"])
     )
     rank = dist.get_rank()
-    print(f"[Rank {rank}] Initialized.")
+    world = dist.get_world_size()
+    hf_cache = os.environ["HF_HOME"]
+
     dist.barrier()  
-    return rank
+    params = (rank, world, hf_cache)
+    return params 
+
+def partition_layers(num_layers: int, world_size: int, rank: int):                  
+    base = num_layers // world_size
+    remainder = num_layers % world_size
+    extra = 1 if rank < remainder else 0
+    start = rank * base + min(rank, remainder)
+    end   = start + base + extra
+    return start, end   
 
 def cleanup():
     dist.destroy_process_group()
