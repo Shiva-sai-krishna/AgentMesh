@@ -69,7 +69,7 @@ if __name__ == "__main__":
             cache.append((k, v))
         print(f"[Rank {rank}] Received step {step+1} hidden & cache")
 
-        outputs = model(inputs_embeds=hidden, past_key_values=cache, use_cache=True, return_dict=True)
+        outputs = model(inputs_embeds=hidden, past_key_values=cache, use_cache=True, return_dict=True, output_hidden_states=True)
         
     
         if rank == world - 1 : 
