@@ -1,41 +1,65 @@
 import os
-from utils import setup, cleanup, partition_layers
-from transformers import GPT2LMHeadModel
+from utils import setup, cleanup, build_local_model_gpt2xl, send_tensor, recv_token
+from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import torch
 
-def build_local_model_gpt2xl(rank: int, world_size: int, cache_dir: str):
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    full = GPT2LMHeadModel.from_pretrained("gpt2-xl",cache_dir=cache_dir, torch_dtype=torch.float16, low_cpu_mem_usage=True)
-    blocks = full.transformer.h
-    start, end = partition_layers(len(blocks), world_size, rank)
-    full.transformer.h = torch.nn.ModuleList(blocks[start:end])
-
-    if rank != 0:
-        del full.transformer.wte
-        del full.transformer.wpe
-        del full.transformer.drop
- 
-    if rank != world_size - 1:
-        del full.transformer.ln_f
-        del full.lm_head
- 
-    def _id(name):
-        setattr(full, name, torch.nn.Identity())
- 
-    if rank != 0:
-        _id("embed_forward")
- 
-    full.to(device)
-    return full
-
-
-
-
-
 if __name__ == "__main__":
-    params = setup()
-    print(f"[Rank {params[0]}] World size: {params[1]}")
-    model = build_local_model_gpt2xl(params[0], params[1], params[2])
-    print(f"[Rank {params[0]}] Model built successfully.")
-    print(model)
-    cleanup()
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    rank, world, hf = setup()
+    print(f"[Rank {rank}] World size: {world}")
+
+    src = rank - 1
+    if src < 0 : 
+        src = world - 1
+    dst = (rank + 1)% world
+    print(f"[Rank {rank}] Source: {src}, Destination: {dst}")
+
+    if world == 1: 
+        pass 
+    else : 
+        model = build_local_model_gpt2xl(rank, world, hf)
+        print(f"[Rank {rank}] Model built successfully.")
+
+        tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+        print(f"[Rank {rank}] Tokenizer loaded")  
+
+        prompt = "The meaning of life is"
+        inputs = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
+        
+        outputs = model(inputs, use_cache=True, return_dict=True, output_hidden_states=True)
+        print(f"[Rank {rank}] Model forward pass completed")
+
+        hidden  = outputs.hidden_states[-1]
+        cache  = outputs.past_key_values
+
+        send_tensor(hidden, dst=1)
+        for layer_kvs in cache:
+            for part in layer_kvs:
+                send_tensor(part, dst=1)
+        print(f"[Rank {rank}] Prefill hidden & cache sent")
+
+        token = recv_token(src=src).to(device)
+        generated = torch.cat([inputs, token], dim=-1)
+
+        max_new = 50
+        for step in range(max_new):
+            print(f"[Rank {rank}] Generation step {step+1}/{max_new}")
+
+            outputs = model(generated[:, -1:].to(device),past_key_values=cache,use_cache=True,return_dict=True,output_hidden_states=True)
+
+            hidden = outputs.hidden_states[-1]
+            cache = outputs.past_key_values     
+
+            send_tensor(hidden, dst=dst)
+            for layer_kvs in cache:
+                k, v = layer_kvs
+                send_tensor(k, dst=dst)
+                send_tensor(v, dst=dst)
+            print(f"[Rank {rank}] Prefill hidden & cache sent")
+
+            token = recv_token(src=src).to(device)
+            generated = torch.cat([generated, token], dim=-1)
+            print(f"[Rank {rank}] Step {step+1} token: {token.item()}")
+
+        print(f"[Rank {rank}] Final:", tokenizer.decode(generated[0], skip_special_tokens=True))
+        cleanup()
