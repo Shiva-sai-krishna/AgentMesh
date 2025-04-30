@@ -19,6 +19,7 @@ if __name__ == "__main__":
     else : 
         model = build_local_model_gpt2xl(rank, world, hf)
         print(f"[Rank {rank}] Model built successfully.")
+        print(model)
 
         tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
         print(f"[Rank {rank}] Tokenizer loaded")  
@@ -29,13 +30,15 @@ if __name__ == "__main__":
         outputs = model(inputs, use_cache=True, return_dict=True, output_hidden_states=True)
         print(f"[Rank {rank}] Model forward pass completed")
 
+        print(f"[Rank {rank}] types : {type(outputs)}, {type(outputs.hidden_states)}, {type(outputs.past_key_values)}")
+
         hidden  = outputs.hidden_states[-1]
         cache  = outputs.past_key_values
 
-        send_tensor(hidden, dst=1)
+        send_tensor(hidden, dst=dst)
         for layer_kvs in cache:
             for part in layer_kvs:
-                send_tensor(part, dst=1)
+                send_tensor(part, dst=dst)
         print(f"[Rank {rank}] Prefill hidden & cache sent")
 
         token = recv_token(src=src).to(device)

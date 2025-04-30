@@ -35,7 +35,7 @@ def build_local_model_gpt2xl(rank: int, world_size: int, cache_dir: str):
     blocks = full.transformer.h
     start, end = partition_layers(len(blocks), world_size, rank)
     full.transformer.h = torch.nn.ModuleList(blocks[start:end])
- 
+    print(f"[Rank {rank}] Model partitioned to layers {start+1}-{end}.")
     def _id(name):
         setattr(full, name, torch.nn.Identity())
  

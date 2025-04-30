@@ -23,6 +23,7 @@ if __name__ == "__main__":
 
     model = build_local_model_gpt2xl(rank, world, hf)
     print(f"[Rank {rank}] Model built successfully.")
+    print(model)
 
     hidden = recv_tensor(src=src, dtype=torch.float32).to(device)
     print(f"[Rank {rank}] Received prefill hidden")

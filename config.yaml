@@ -9,12 +9,12 @@ master:
 
 
 workers:
-  - ip: "10.24.24.74"
-    username: "mayankarya"
-    password: "mayankorin6"
-    work_dir: "/media/ssd/AgentMesh"
-    python_env: "/home/mayankarya/distributed/bin/activate"
-    hf_cache: "/media/ssd/huggingface_cache"
+  # - ip: "10.24.24.74"
+  #   username: "mayankarya"
+  #   password: "mayankorin6"
+  #   work_dir: "/media/ssd/AgentMesh"
+  #   python_env: "/home/mayankarya/distributed/bin/activate"
+  #   hf_cache: "/media/ssd/huggingface_cache"
 
   - ip: "10.24.24.49"
     username: "mayankarya"
