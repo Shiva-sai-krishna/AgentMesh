@@ -2,9 +2,19 @@ import os
 import torch.distributed as dist
 from transformers import GPT2LMHeadModel
 import torch
-
 from torch.nn.functional import softmax
 import math
+import random, numpy as np, torch
+
+def deterministic() : 
+    SEED = 42
+    random.seed(SEED)
+    np.random.seed(SEED)
+    torch.manual_seed(SEED)
+    torch.cuda.manual_seed_all(SEED)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
 
 def setup():
     dist.init_process_group(
@@ -16,9 +26,10 @@ def setup():
     rank = dist.get_rank()
     world = dist.get_world_size()
     hf_cache = os.environ["HF_HOME"]
+    max_tokens = int(os.environ["MAX_TOKENS"])
 
     dist.barrier()  
-    params = (rank, world, hf_cache)
+    params = (rank, world, hf_cache, max_tokens)
     return params 
 
 def partition_layers(num_layers: int, world_size: int, rank: int):                  
@@ -29,21 +40,28 @@ def partition_layers(num_layers: int, world_size: int, rank: int):
     end   = start + base + extra
     return start, end   
 
+from torch.nn import Identity
+
 def build_local_model_gpt2xl(rank: int, world_size: int, cache_dir: str):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    full = GPT2LMHeadModel.from_pretrained("gpt2-xl",cache_dir=cache_dir)
-    blocks = full.transformer.h
-    start, end = partition_layers(len(blocks), world_size, rank)
-    full.transformer.h = torch.nn.ModuleList(blocks[start:end])
-    print(f"[Rank {rank}] Model partitioned to layers {start+1}-{end}.")
-    def _id(name):
-        setattr(full, name, torch.nn.Identity())
- 
+    full = GPT2LMHeadModel.from_pretrained("gpt2-xl", cache_dir=cache_dir)
+    start, end = partition_layers(len(full.transformer.h), world_size, rank)
+    full.transformer.h = torch.nn.ModuleList(full.transformer.h[start:end])
+    print(f"[Rank {rank}] Layers {start+1}-{end}")
+
     if rank != 0:
-        _id("embed_forward")
- 
+        full.transformer.wte = Identity()
+        full.transformer.wpe.weight.data.zero_()
+        full.transformer.wpe.weight.requires_grad_(False)
+
+    if rank != world_size - 1:
+        full.transformer.ln_f = Identity()
+        full.lm_head       = Identity()
+
     full.to(device)
     return full
+
+
 
 def send_tensor(tensor, dst):
     tensor = tensor.contiguous()

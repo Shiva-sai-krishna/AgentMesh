@@ -1,3 +1,8 @@
+maxTokens: 50
+inputStrings:
+  - "what is the meaning of life"
+
+
 master:
   ip: "10.24.24.75"
   port: 36000

@@ -1,5 +1,5 @@
 import os
-from utils import setup, cleanup, build_local_model_gpt2xl, send_tensor, recv_token, recv_tensor
+from utils import setup, cleanup, build_local_model_gpt2xl, send_tensor, recv_token, recv_tensor, deterministic
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 import torch
 from torch.nn.functional import softmax
@@ -10,9 +10,9 @@ from utils import top_k_top_p_filtering, send_token
 
 if __name__ == "__main__":
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    deterministic()
     
-    
-    rank, world, hf = setup()
+    rank, world, hf, max_tokens = setup()
     print(f"[Rank {rank}] World size is {world}")
     
     src = rank - 1
@@ -58,7 +58,7 @@ if __name__ == "__main__":
         print(f"[Rank {rank}] Prefill hidden & cache sent")
 
 
-    max_new = 50
+    max_new = max_tokens
     for step in range(max_new):
         print(f"[Rank {rank}] Waiting for step {step+1}")
         hidden = recv_tensor(src=src, dtype=torch.float32).to(device)

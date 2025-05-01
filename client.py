@@ -23,7 +23,7 @@ def ssh_run_command(ip, username, password, command):
     
     client.close()
 
-def setup_worker(device_info, master_addr, master_port, world_size, rank):
+def setup_worker(device_info, master_addr, master_port, world_size, rank, maxTokens):
     ip = device_info["ip"]
     username = device_info["username"]
     password = device_info["password"]
@@ -40,6 +40,7 @@ def setup_worker(device_info, master_addr, master_port, world_size, rank):
     export WORLD_SIZE={world_size} && \
     export RANK={rank} && \
     export HF_HOME={hf_cache} && \
+    export MAX_TOKENS={maxTokens} && \
     source {python_env} && \
     python3 worker.py
     """
@@ -52,7 +53,7 @@ def setup_worker(device_info, master_addr, master_port, world_size, rank):
 
     ssh_run_command(ip, username, password, command)
 
-def setup_master(device_info, master_addr, master_port, world_size, rank):
+def setup_master(device_info, master_addr, master_port, world_size, rank, max_tokens, input_strings):
     ip = device_info["ip"]
     username = device_info["username"]
     password = device_info["password"]
@@ -72,6 +73,8 @@ def setup_master(device_info, master_addr, master_port, world_size, rank):
     export WORLD_SIZE={world_size} && \
     export RANK={rank} && \
     export HF_HOME={hf_cache} && \
+    export MAX_TOKENS={max_tokens} && \
+    export INPUT_STRINGS={input_strings} && \
     source {python_env} && \
     python3 master.py
     """
@@ -94,13 +97,18 @@ def main():
     master_addr = config["master"]["ip"]
     master_port = config["master"]["port"]
     devices = config["workers"]
+    max_tokens = config.get('maxTokens')
+    input_strings = config.get('inputStrings')
 
-    world_size = len(devices) + 1  # workers + master
+    if not devices:
+        devices = []
+
+    world_size = len(devices) + 1  
     threads = []
 
     # Setup workers (rank != 0)
     for rank, device in enumerate(devices, start=1):
-        thread = threading.Thread(target=setup_worker, args=(device, master_addr, master_port, world_size, rank))
+        thread = threading.Thread(target=setup_worker, args=(device, master_addr, master_port, world_size, rank, max_tokens))
         thread.start()
         threads.append(thread)
 
@@ -114,7 +122,7 @@ def main():
         "hf_cache": config["master"]["hf_cache"]
     }
 
-    setup_master(master_device_info, master_addr, master_port, world_size, rank=0)
+    setup_master(master_device_info, master_addr, master_port, world_size, rank=0, max_tokens=max_tokens, input_strings=input_strings)
 
 if __name__ == "__main__":
     main()
