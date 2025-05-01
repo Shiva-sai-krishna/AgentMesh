@@ -8,6 +8,8 @@ if __name__ == "__main__":
     deterministic()
     rank, world, hf, max_tokens = setup()
     inputs = os.environ["INPUT_STRINGS"]
+    inputs = inputs[1:len(inputs)-2]
+    
     print(f"[Rank {rank}] World size: {world}")
 
     src = rank - 1
@@ -21,7 +23,8 @@ if __name__ == "__main__":
         tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
         model.to(device).eval()
 
-        prompt = inputs[0]
+        prompt = inputs
+        print("prompt", prompt)
         inputs = tokenizer(prompt, return_tensors="pt").to(device)
 
         # greedy / sampling loop
@@ -44,6 +47,8 @@ if __name__ == "__main__":
 
         result = tokenizer.decode(generated[0], skip_special_tokens=True)
         print("Final:", result)
+        with open("output.txt", "w") as file:
+            file.write(result)
     
         
     else : 
@@ -54,7 +59,7 @@ if __name__ == "__main__":
         tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
         print(f"[Rank {rank}] Tokenizer loaded")  
 
-        prompt = "The meaning of life is"
+        prompt = inputs
         inputs = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
         
         outputs = model(inputs, use_cache=True, return_dict=True, output_hidden_states=True)
@@ -92,5 +97,7 @@ if __name__ == "__main__":
             generated = torch.cat([generated, token], dim=-1)
             print(f"[Rank {rank}] Step {step+1} token: {token.item()}")
         result = tokenizer.decode(generated[0], skip_special_tokens=True)
+        with open("output.txt", "w") as file:
+            file.write(result)
         print(f"[Rank {rank}] Final:", tokenizer.decode(generated[0], skip_special_tokens=True))
         cleanup()

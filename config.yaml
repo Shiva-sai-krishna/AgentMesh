@@ -1,6 +1,6 @@
-maxTokens: 50
-inputStrings:
-  - "what is the meaning of life"
+maxTokens: 20
+inputStrings : 
+  - "I have a huge whopping p"
 
 
 master:
@@ -21,9 +21,9 @@ workers:
     python_env: "/home/mayankarya/distributed/bin/activate"
     hf_cache: "/media/ssd/huggingface_cache"
 
-  - ip: "10.24.24.49"
-    username: "mayankarya"
-    password: "mayankagx5"
-    work_dir: "/media/ssd/AgentMesh"
-    python_env: "/media/ssd/ssds/distributed/bin/activate"
-    hf_cache: "/media/ssd/huggingface_cache"
+  # - ip: "10.24.24.49"
+  #   username: "mayankarya"
+  #   password: "mayankagx5"
+  #   work_dir: "/media/ssd/AgentMesh"
+  #   python_env: "/media/ssd/ssds/distributed/bin/activate"
+  #   hf_cache: "/media/ssd/huggingface_cache"

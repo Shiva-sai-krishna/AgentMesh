@@ -4,6 +4,9 @@ import yaml
 import paramiko
 import threading
 import sys
+import os
+import time
+
 
 def load_config(path="config.yaml"):
     with open(path, 'r') as f:
@@ -123,6 +126,16 @@ def main():
     }
 
     setup_master(master_device_info, master_addr, master_port, world_size, rank=0, max_tokens=max_tokens, input_strings=input_strings)
+    filename = "output.txt"
+    while not os.path.exists(filename):
+        time.sleep(1)
+    with open(filename, "r") as file:
+        content = file.read()
+        print(content)
+
 
 if __name__ == "__main__":
     main()
+    
+
+
