@@ -1,0 +1,67 @@
+State,Rank,Type,Remark,Time
+Prefill,1,Compute,,0.212
+Prefill,1,Communication,Sending token back,0.000
+Decode 1,1,Compute,,0.032
+Decode 1,1,Communication,Sending token back,0.000
+Decode 2,1,Compute,,0.015
+Decode 2,1,Communication,Sending token back,0.000
+Decode 3,1,Compute,,0.021
+Decode 3,1,Communication,Sending token back,0.000
+Decode 4,1,Compute,,0.027
+Decode 4,1,Communication,Sending token back,0.000
+Decode 5,1,Compute,,0.030
+Decode 5,1,Communication,Sending token back,0.000
+Decode 6,1,Compute,,0.029
+Decode 6,1,Communication,Sending token back,0.000
+Decode 7,1,Compute,,0.031
+Decode 7,1,Communication,Sending token back,0.001
+Decode 8,1,Compute,,0.029
+Decode 8,1,Communication,Sending token back,0.000
+Decode 9,1,Compute,,0.030
+Decode 9,1,Communication,Sending token back,0.000
+Decode 10,1,Compute,,0.029
+Decode 10,1,Communication,Sending token back,0.000
+Decode 11,1,Compute,,0.029
+Decode 11,1,Communication,Sending token back,0.000
+Decode 12,1,Compute,,0.030
+Decode 12,1,Communication,Sending token back,0.001
+Decode 13,1,Compute,,0.030
+Decode 13,1,Communication,Sending token back,0.001
+Decode 14,1,Compute,,0.029
+Decode 14,1,Communication,Sending token back,0.001
+Decode 15,1,Compute,,0.030
+Decode 15,1,Communication,Sending token back,0.000
+Decode 16,1,Compute,,0.029
+Decode 16,1,Communication,Sending token back,0.000
+Decode 17,1,Compute,,0.030
+Decode 17,1,Communication,Sending token back,0.000
+Decode 18,1,Compute,,0.029
+Decode 18,1,Communication,Sending token back,0.001
+Decode 19,1,Compute,,0.029
+Decode 19,1,Communication,Sending token back,0.001
+Decode 20,1,Compute,,0.029
+Decode 20,1,Communication,Sending token back,0.000
+Decode 21,1,Compute,,0.030
+Decode 21,1,Communication,Sending token back,0.000
+Decode 22,1,Compute,,0.029
+Decode 22,1,Communication,Sending token back,0.001
+Decode 23,1,Compute,,0.030
+Decode 23,1,Communication,Sending token back,0.000
+Decode 24,1,Compute,,0.029
+Decode 24,1,Communication,Sending token back,0.000
+Decode 25,1,Compute,,0.030
+Decode 25,1,Communication,Sending token back,0.001
+Decode 26,1,Compute,,0.031
+Decode 26,1,Communication,Sending token back,0.001
+Decode 27,1,Compute,,0.030
+Decode 27,1,Communication,Sending token back,0.001
+Decode 28,1,Compute,,0.029
+Decode 28,1,Communication,Sending token back,0.000
+Decode 29,1,Compute,,0.029
+Decode 29,1,Communication,Sending token back,0.000
+Decode 30,1,Compute,,0.030
+Decode 30,1,Communication,Sending token back,0.001
+Decode 31,1,Compute,,0.029
+Decode 31,1,Communication,Sending token back,0.000
+Decode 32,1,Compute,,0.030
+Decode 32,1,Communication,Sending token back,0.000

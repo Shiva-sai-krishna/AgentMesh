@@ -1,10 +1,25 @@
 import os
 import torch.distributed as dist
-from transformers import GPT2LMHeadModel
+from transformers import GPT2LMHeadModel, AutoModelForCausalLM
 import torch
 from torch.nn.functional import softmax
 import math
 import random, numpy as np, torch
+import csv
+import time
+
+
+def append_to_csv(writer, row_data, file):
+    """
+    Append a single row of data to a CSV file. If the file does not exist, it will be created.
+
+    Args:
+        file_path (str): Path to the target CSV file.
+        row_data (list or tuple): An iterable of values to write as one row.
+    """
+    writer.writerow(row_data)
+    file.flush()
+
 
 def deterministic() : 
     SEED = 42
@@ -44,7 +59,14 @@ from torch.nn import Identity
 
 def build_local_model_gpt2xl(rank: int, world_size: int, cache_dir: str):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    full = GPT2LMHeadModel.from_pretrained("gpt2-xl", cache_dir=cache_dir)
+    
+    # model options
+    # openai-community/gpt2
+    # openai-community/gpt2-medium
+    # openai-community/gpt2-large  -- done
+    # openai-community/gpt2-xl
+
+    full =  AutoModelForCausalLM.from_pretrained("openai-community/gpt2", cache_dir=cache_dir)
     start, end = partition_layers(len(full.transformer.h), world_size, rank)
     full.transformer.h = torch.nn.ModuleList(full.transformer.h[start:end])
     print(f"[Rank {rank}] Layers {start+1}-{end}")
@@ -63,13 +85,17 @@ def build_local_model_gpt2xl(rank: int, world_size: int, cache_dir: str):
 
 
 
-def send_tensor(tensor, dst):
+def send_tensor(tensor, dst, writer=None, label=""):
     tensor = tensor.contiguous()
     dims = torch.tensor([tensor.dim()], dtype=torch.long)
     dist.send(dims, dst=dst)
     shape = torch.tensor(tensor.shape, dtype=torch.long)
     dist.send(shape, dst=dst)
     dist.send(tensor.cpu(), dst=dst)
+
+    if writer is not None:
+        size_in_bytes = tensor.element_size() * tensor.nelement()
+        writer.writerow(["Tensor Send", dst, label, f"{list(tensor.shape)}", size_in_bytes])
 
 def recv_token(src):
     buf = torch.zeros((1,1), dtype=torch.long)
@@ -128,4 +154,5 @@ def recv_tensor(src, dtype=torch.float32):
     buf = torch.zeros(shape, dtype=dtype)
     # 4) Recv actual tensor data
     dist.recv(buf, src=src)
+    print(f"{time.time()} tensor received")
     return buf

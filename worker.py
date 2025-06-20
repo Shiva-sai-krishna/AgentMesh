@@ -23,7 +23,8 @@ if __name__ == "__main__":
 
     model = build_local_model_gpt2xl(rank, world, hf)
     print(f"[Rank {rank}] Model built successfully.")
-    print(model)
+
+    # model has been loaded
 
     hidden = recv_tensor(src=src, dtype=torch.float32).to(device)
     print(f"[Rank {rank}] Received prefill hidden")
@@ -36,16 +37,19 @@ if __name__ == "__main__":
         cache.append((k,v))
     print(f"[Rank {rank}] Received prefill cache")
 
+    # this is where actual compute is happening
     outputs = model(inputs_embeds=hidden.to("cuda:0"), past_key_values=cache, use_cache=True, return_dict=True, output_hidden_states=True)
     print(f"[Rank {rank}] Model forward pass completed")
 
     if rank == world - 1 : 
         logits = outputs.logits
-        next_logits = logits[:, -1, :]
+        next_logits = logits[:, -1, :] # full "a"
         filtered = top_k_top_p_filtering(next_logits, top_k=50, top_p=0.95)
         probs = softmax(filtered / 0.8, dim=-1)
         tok = torch.multinomial(probs, num_samples=1)
         print(f"[Rank {rank}] Prefill sampled token: {tok.item()}")
+        # sending token to head
+        # TODO: log this communication time
         send_token(tok, dst=dst)
     
     else : 

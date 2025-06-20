@@ -1,0 +1,68 @@
+State,Rank,Type,Remark,Time
+Tokenization,0,Compute,,0.003
+Prefill,0,Compute,,0.160
+Prefill,0,Communication,Send Hidden,0.006
+Decode 1,0,Compute,,0.026
+Decode 1,0,Communication,Send Hidden,0.003
+Decode 2,0,Compute,,0.018
+Decode 2,0,Communication,Send Hidden,0.003
+Decode 3,0,Compute,,0.023
+Decode 3,0,Communication,Send Hidden,0.003
+Decode 4,0,Compute,,0.029
+Decode 4,0,Communication,Send Hidden,0.003
+Decode 5,0,Compute,,0.030
+Decode 5,0,Communication,Send Hidden,0.003
+Decode 6,0,Compute,,0.030
+Decode 6,0,Communication,Send Hidden,0.003
+Decode 7,0,Compute,,0.029
+Decode 7,0,Communication,Send Hidden,0.003
+Decode 8,0,Compute,,0.029
+Decode 8,0,Communication,Send Hidden,0.003
+Decode 9,0,Compute,,0.030
+Decode 9,0,Communication,Send Hidden,0.003
+Decode 10,0,Compute,,0.029
+Decode 10,0,Communication,Send Hidden,0.003
+Decode 11,0,Compute,,0.029
+Decode 11,0,Communication,Send Hidden,0.003
+Decode 12,0,Compute,,0.029
+Decode 12,0,Communication,Send Hidden,0.003
+Decode 13,0,Compute,,0.026
+Decode 13,0,Communication,Send Hidden,0.003
+Decode 14,0,Compute,,0.029
+Decode 14,0,Communication,Send Hidden,0.003
+Decode 15,0,Compute,,0.029
+Decode 15,0,Communication,Send Hidden,0.003
+Decode 16,0,Compute,,0.031
+Decode 16,0,Communication,Send Hidden,0.003
+Decode 17,0,Compute,,0.029
+Decode 17,0,Communication,Send Hidden,0.003
+Decode 18,0,Compute,,0.030
+Decode 18,0,Communication,Send Hidden,0.003
+Decode 19,0,Compute,,0.030
+Decode 19,0,Communication,Send Hidden,0.003
+Decode 20,0,Compute,,0.029
+Decode 20,0,Communication,Send Hidden,0.003
+Decode 21,0,Compute,,0.030
+Decode 21,0,Communication,Send Hidden,0.003
+Decode 22,0,Compute,,0.029
+Decode 22,0,Communication,Send Hidden,0.003
+Decode 23,0,Compute,,0.030
+Decode 23,0,Communication,Send Hidden,0.003
+Decode 24,0,Compute,,0.029
+Decode 24,0,Communication,Send Hidden,0.003
+Decode 25,0,Compute,,0.030
+Decode 25,0,Communication,Send Hidden,0.003
+Decode 26,0,Compute,,0.029
+Decode 26,0,Communication,Send Hidden,0.003
+Decode 27,0,Compute,,0.022
+Decode 27,0,Communication,Send Hidden,0.003
+Decode 28,0,Compute,,0.029
+Decode 28,0,Communication,Send Hidden,0.003
+Decode 29,0,Compute,,0.030
+Decode 29,0,Communication,Send Hidden,0.003
+Decode 30,0,Compute,,0.029
+Decode 30,0,Communication,Send Hidden,0.003
+Decode 31,0,Compute,,0.029
+Decode 31,0,Communication,Send Hidden,0.003
+Decode 32,0,Compute,,0.030
+Decode 32,0,Communication,Send Hidden,0.003

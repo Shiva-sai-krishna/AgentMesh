@@ -1,0 +1,132 @@
+State,Rank,Type,Remark,Time
+Tokenization,0,Compute,,0.003
+Prefill,0,Compute,,0.156
+Prefill,0,Communication,Send Hidden,0.663
+Decode 1,0,Compute,,0.051
+Decode 1,0,Communication,Send Hidden,0.003
+Decode 2,0,Compute,,0.028
+Decode 2,0,Communication,Send Hidden,0.003
+Decode 3,0,Compute,,0.021
+Decode 3,0,Communication,Send Hidden,0.003
+Decode 4,0,Compute,,0.027
+Decode 4,0,Communication,Send Hidden,0.003
+Decode 5,0,Compute,,0.023
+Decode 5,0,Communication,Send Hidden,0.003
+Decode 6,0,Compute,,0.030
+Decode 6,0,Communication,Send Hidden,0.003
+Decode 7,0,Compute,,0.029
+Decode 7,0,Communication,Send Hidden,0.003
+Decode 8,0,Compute,,0.029
+Decode 8,0,Communication,Send Hidden,0.003
+Decode 9,0,Compute,,0.029
+Decode 9,0,Communication,Send Hidden,0.003
+Decode 10,0,Compute,,0.029
+Decode 10,0,Communication,Send Hidden,0.003
+Decode 11,0,Compute,,0.029
+Decode 11,0,Communication,Send Hidden,0.003
+Decode 12,0,Compute,,0.029
+Decode 12,0,Communication,Send Hidden,0.003
+Decode 13,0,Compute,,0.029
+Decode 13,0,Communication,Send Hidden,0.003
+Decode 14,0,Compute,,0.029
+Decode 14,0,Communication,Send Hidden,0.003
+Decode 15,0,Compute,,0.028
+Decode 15,0,Communication,Send Hidden,0.003
+Decode 16,0,Compute,,0.031
+Decode 16,0,Communication,Send Hidden,0.002
+Decode 17,0,Compute,,0.029
+Decode 17,0,Communication,Send Hidden,0.003
+Decode 18,0,Compute,,0.023
+Decode 18,0,Communication,Send Hidden,0.003
+Decode 19,0,Compute,,0.030
+Decode 19,0,Communication,Send Hidden,0.003
+Decode 20,0,Compute,,0.029
+Decode 20,0,Communication,Send Hidden,0.003
+Decode 21,0,Compute,,0.029
+Decode 21,0,Communication,Send Hidden,0.003
+Decode 22,0,Compute,,0.029
+Decode 22,0,Communication,Send Hidden,0.003
+Decode 23,0,Compute,,0.030
+Decode 23,0,Communication,Send Hidden,0.003
+Decode 24,0,Compute,,0.029
+Decode 24,0,Communication,Send Hidden,0.003
+Decode 25,0,Compute,,0.030
+Decode 25,0,Communication,Send Hidden,0.003
+Decode 26,0,Compute,,0.029
+Decode 26,0,Communication,Send Hidden,0.003
+Decode 27,0,Compute,,0.029
+Decode 27,0,Communication,Send Hidden,0.003
+Decode 28,0,Compute,,0.029
+Decode 28,0,Communication,Send Hidden,0.003
+Decode 29,0,Compute,,0.029
+Decode 29,0,Communication,Send Hidden,0.003
+Decode 30,0,Compute,,0.030
+Decode 30,0,Communication,Send Hidden,0.003
+Decode 31,0,Compute,,0.029
+Decode 31,0,Communication,Send Hidden,0.003
+Decode 32,0,Compute,,0.027
+Decode 32,0,Communication,Send Hidden,0.003
+Decode 33,0,Compute,,0.019
+Decode 33,0,Communication,Send Hidden,0.003
+Decode 34,0,Compute,,0.029
+Decode 34,0,Communication,Send Hidden,0.003
+Decode 35,0,Compute,,0.029
+Decode 35,0,Communication,Send Hidden,0.003
+Decode 36,0,Compute,,0.030
+Decode 36,0,Communication,Send Hidden,0.003
+Decode 37,0,Compute,,0.029
+Decode 37,0,Communication,Send Hidden,0.003
+Decode 38,0,Compute,,0.030
+Decode 38,0,Communication,Send Hidden,0.003
+Decode 39,0,Compute,,0.029
+Decode 39,0,Communication,Send Hidden,0.003
+Decode 40,0,Compute,,0.030
+Decode 40,0,Communication,Send Hidden,0.003
+Decode 41,0,Compute,,0.029
+Decode 41,0,Communication,Send Hidden,0.003
+Decode 42,0,Compute,,0.029
+Decode 42,0,Communication,Send Hidden,0.003
+Decode 43,0,Compute,,0.029
+Decode 43,0,Communication,Send Hidden,0.003
+Decode 44,0,Compute,,0.029
+Decode 44,0,Communication,Send Hidden,0.003
+Decode 45,0,Compute,,0.030
+Decode 45,0,Communication,Send Hidden,0.003
+Decode 46,0,Compute,,0.025
+Decode 46,0,Communication,Send Hidden,0.003
+Decode 47,0,Compute,,0.029
+Decode 47,0,Communication,Send Hidden,0.003
+Decode 48,0,Compute,,0.018
+Decode 48,0,Communication,Send Hidden,0.002
+Decode 49,0,Compute,,0.026
+Decode 49,0,Communication,Send Hidden,0.003
+Decode 50,0,Compute,,0.030
+Decode 50,0,Communication,Send Hidden,0.003
+Decode 51,0,Compute,,0.030
+Decode 51,0,Communication,Send Hidden,0.003
+Decode 52,0,Compute,,0.030
+Decode 52,0,Communication,Send Hidden,0.003
+Decode 53,0,Compute,,0.030
+Decode 53,0,Communication,Send Hidden,0.003
+Decode 54,0,Compute,,0.030
+Decode 54,0,Communication,Send Hidden,0.003
+Decode 55,0,Compute,,0.030
+Decode 55,0,Communication,Send Hidden,0.003
+Decode 56,0,Compute,,0.030
+Decode 56,0,Communication,Send Hidden,0.003
+Decode 57,0,Compute,,0.029
+Decode 57,0,Communication,Send Hidden,0.003
+Decode 58,0,Compute,,0.030
+Decode 58,0,Communication,Send Hidden,0.003
+Decode 59,0,Compute,,0.026
+Decode 59,0,Communication,Send Hidden,0.003
+Decode 60,0,Compute,,0.030
+Decode 60,0,Communication,Send Hidden,0.003
+Decode 61,0,Compute,,0.029
+Decode 61,0,Communication,Send Hidden,0.003
+Decode 62,0,Compute,,0.015
+Decode 62,0,Communication,Send Hidden,0.004
+Decode 63,0,Compute,,0.029
+Decode 63,0,Communication,Send Hidden,0.003
+Decode 64,0,Compute,,0.030
+Decode 64,0,Communication,Send Hidden,0.003

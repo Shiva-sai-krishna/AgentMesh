@@ -1,0 +1,5 @@
+State,Rank,Type,Remark,Time
+Prefill,1,Compute,,0.217
+Prefill,1,Communication,Sending token back,0.000
+Decode 1,1,Compute,,0.035
+Decode 1,1,Communication,Sending token back,0.000

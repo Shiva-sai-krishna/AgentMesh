@@ -1,0 +1,203 @@
+[Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[Rank 0] World size: 2
+[Rank 0] Source: 1, Destination: 1
+[Rank 0] Layers 1-6
+0.33393564 GB
+[Rank 0] Model built successfully.
+[Rank 0] Tokenizer loaded
+[Rank 0] Model forward pass completed
+[Rank 0] Prefill hidden sent
+[Rank 0] Generation step 1/64
+[Rank 0] Decode 1 hidden sent
+[Rank 0] Step 1 token: 262
+[Rank 0] Generation step 2/64
+[Rank 0] Decode 2 hidden sent
+[Rank 0] Step 2 token: 9952
+[Rank 0] Generation step 3/64
+[Rank 0] Decode 3 hidden sent
+[Rank 0] Step 3 token: 4041
+[Rank 0] Generation step 4/64
+[Rank 0] Decode 4 hidden sent
+[Rank 0] Step 4 token: 338
+[Rank 0] Generation step 5/64
+[Rank 0] Decode 5 hidden sent
+[Rank 0] Step 5 token: 7853
+[Rank 0] Generation step 6/64
+[Rank 0] Decode 6 hidden sent
+[Rank 0] Step 6 token: 286
+[Rank 0] Generation step 7/64
+[Rank 0] Decode 7 hidden sent
+[Rank 0] Step 7 token: 262
+[Rank 0] Generation step 8/64
+[Rank 0] Decode 8 hidden sent
+[Rank 0] Step 8 token: 6280
+[Rank 0] Generation step 9/64
+[Rank 0] Decode 9 hidden sent
+[Rank 0] Step 9 token: 5764
+[Rank 0] Generation step 10/64
+[Rank 0] Decode 10 hidden sent
+[Rank 0] Step 10 token: 290
+[Rank 0] Generation step 11/64
+[Rank 0] Decode 11 hidden sent
+[Rank 0] Step 11 token: 262
+[Rank 0] Generation step 12/64
+[Rank 0] Decode 12 hidden sent
+[Rank 0] Step 12 token: 2159
+[Rank 0] Generation step 13/64
+[Rank 0] Decode 13 hidden sent
+[Rank 0] Step 13 token: 5454
+[Rank 0] Generation step 14/64
+[Rank 0] Decode 14 hidden sent
+[Rank 0] Step 14 token: 16383
+[Rank 0] Generation step 15/64
+[Rank 0] Decode 15 hidden sent
+[Rank 0] Step 15 token: 13
+[Rank 0] Generation step 16/64
+[Rank 0] Decode 16 hidden sent
+[Rank 0] Step 16 token: 2399
+[Rank 0] Generation step 17/64
+[Rank 0] Decode 17 hidden sent
+[Rank 0] Step 17 token: 3061
+[Rank 0] Generation step 18/64
+[Rank 0] Decode 18 hidden sent
+[Rank 0] Step 18 token: 19934
+[Rank 0] Generation step 19/64
+[Rank 0] Decode 19 hidden sent
+[Rank 0] Step 19 token: 3451
+[Rank 0] Generation step 20/64
+[Rank 0] Decode 20 hidden sent
+[Rank 0] Step 20 token: 468
+[Rank 0] Generation step 21/64
+[Rank 0] Decode 21 hidden sent
+[Rank 0] Step 21 token: 587
+[Rank 0] Generation step 22/64
+[Rank 0] Decode 22 hidden sent
+[Rank 0] Step 22 token: 257
+[Rank 0] Generation step 23/64
+[Rank 0] Decode 23 hidden sent
+[Rank 0] Step 23 token: 24471
+[Rank 0] Generation step 24/64
+[Rank 0] Decode 24 hidden sent
+[Rank 0] Step 24 token: 1073
+[Rank 0] Generation step 25/64
+[Rank 0] Decode 25 hidden sent
+[Rank 0] Step 25 token: 1603
+[Rank 0] Generation step 26/64
+[Rank 0] Decode 26 hidden sent
+[Rank 0] Step 26 token: 11
+[Rank 0] Generation step 27/64
+[Rank 0] Decode 27 hidden sent
+[Rank 0] Step 27 token: 351
+[Rank 0] Generation step 28/64
+[Rank 0] Decode 28 hidden sent
+[Rank 0] Step 28 token: 4661
+[Rank 0] Generation step 29/64
+[Rank 0] Decode 29 hidden sent
+[Rank 0] Step 29 token: 290
+[Rank 0] Generation step 30/64
+[Rank 0] Decode 30 hidden sent
+[Rank 0] Step 30 token: 13648
+[Rank 0] Generation step 31/64
+[Rank 0] Decode 31 hidden sent
+[Rank 0] Step 31 token: 287
+[Rank 0] Generation step 32/64
+[Rank 0] Decode 32 hidden sent
+[Rank 0] Step 32 token: 691
+[Rank 0] Generation step 33/64
+[Rank 0] Decode 33 hidden sent
+[Rank 0] Step 33 token: 1440
+[Rank 0] Generation step 34/64
+[Rank 0] Decode 34 hidden sent
+[Rank 0] Step 34 token: 25175
+[Rank 0] Generation step 35/64
+[Rank 0] Decode 35 hidden sent
+[Rank 0] Step 35 token: 7028
+[Rank 0] Generation step 36/64
+[Rank 0] Decode 36 hidden sent
+[Rank 0] Step 36 token: 379
+[Rank 0] Generation step 37/64
+[Rank 0] Decode 37 hidden sent
+[Rank 0] Step 37 token: 1578
+[Rank 0] Generation step 38/64
+[Rank 0] Decode 38 hidden sent
+[Rank 0] Step 38 token: 11
+[Rank 0] Generation step 39/64
+[Rank 0] Decode 39 hidden sent
+[Rank 0] Step 39 token: 43896
+[Rank 0] Generation step 40/64
+[Rank 0] Decode 40 hidden sent
+[Rank 0] Step 40 token: 287
+[Rank 0] Generation step 41/64
+[Rank 0] Decode 41 hidden sent
+[Rank 0] Step 41 token: 257
+[Rank 0] Generation step 42/64
+[Rank 0] Decode 42 hidden sent
+[Rank 0] Step 42 token: 717
+[Rank 0] Generation step 43/64
+[Rank 0] Decode 43 hidden sent
+[Rank 0] Step 43 token: 12
+[Rank 0] Generation step 44/64
+[Rank 0] Decode 44 hidden sent
+[Rank 0] Step 44 token: 5372
+[Rank 0] Generation step 45/64
+[Rank 0] Decode 45 hidden sent
+[Rank 0] Step 45 token: 5461
+[Rank 0] Generation step 46/64
+[Rank 0] Decode 46 hidden sent
+[Rank 0] Step 46 token: 379
+[Rank 0] Generation step 47/64
+[Rank 0] Decode 47 hidden sent
+[Rank 0] Step 47 token: 262
+[Rank 0] Generation step 48/64
+[Rank 0] Decode 48 hidden sent
+[Rank 0] Step 48 token: 2321
+[Rank 0] Generation step 49/64
+[Rank 0] Decode 49 hidden sent
+[Rank 0] Step 49 token: 7756
+[Rank 0] Generation step 50/64
+[Rank 0] Decode 50 hidden sent
+[Rank 0] Step 50 token: 13
+[Rank 0] Generation step 51/64
+[Rank 0] Decode 51 hidden sent
+[Rank 0] Step 51 token: 554
+[Rank 0] Generation step 52/64
+[Rank 0] Decode 52 hidden sent
+[Rank 0] Step 52 token: 465
+[Rank 0] Generation step 53/64
+[Rank 0] Decode 53 hidden sent
+[Rank 0] Step 53 token: 2368
+[Rank 0] Generation step 54/64
+[Rank 0] Decode 54 hidden sent
+[Rank 0] Step 54 token: 614
+[Rank 0] Generation step 55/64
+[Rank 0] Decode 55 hidden sent
+[Rank 0] Step 55 token: 379
+[Rank 0] Generation step 56/64
+[Rank 0] Decode 56 hidden sent
+[Rank 0] Step 56 token: 1578
+[Rank 0] Generation step 57/64
+[Rank 0] Decode 57 hidden sent
+[Rank 0] Step 57 token: 11
+[Rank 0] Generation step 58/64
+[Rank 0] Decode 58 hidden sent
+[Rank 0] Step 58 token: 339
+[Rank 0] Generation step 59/64
+[Rank 0] Decode 59 hidden sent
+[Rank 0] Step 59 token: 7781
+[Rank 0] Generation step 60/64
+[Rank 0] Decode 60 hidden sent
+[Rank 0] Step 60 token: 3624
+[Rank 0] Generation step 61/64
+[Rank 0] Decode 61 hidden sent
+[Rank 0] Step 61 token: 4661
+[Rank 0] Generation step 62/64
+[Rank 0] Decode 62 hidden sent
+[Rank 0] Step 62 token: 287
+[Rank 0] Generation step 63/64
+[Rank 0] Decode 63 hidden sent
+[Rank 0] Step 63 token: 1596
+[Rank 0] Generation step 64/64
+[Rank 0] Decode 64 hidden sent
+[Rank 0] Step 64 token: 1830
+[Rank 0] Final: Ronaldo began his senior career with Sporting CP, before signing with Manchester United in 2003, winning the FA Cup in his first season. He went on to become a star player at United, as they won three consecutive Premier League titles, the Champions League and the FIFA Club World Cup; his 2007-08 season earned him the Premier League's Player of the Year award and the World Cup trophy. His goalkeeping career has been a rollercoaster, with goals and assists in only four successive seasons at United, culminating in a first-place finish at the 2012 tournament. In his third year at United, he scored eight goals in 17 games
+[Rank 0] Time taken on distributed 2:  5.022130012512207

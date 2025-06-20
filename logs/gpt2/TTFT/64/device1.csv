@@ -1,0 +1,6 @@
+State,Rank,Type,Remark,Time
+Tokenization,0,Compute,,0.004
+Prefill,0,Compute,,0.159
+Prefill,0,Communication,Send Hidden,0.005
+Decode 1,0,Compute,,0.046
+Decode 1,0,Communication,Send Hidden,0.003

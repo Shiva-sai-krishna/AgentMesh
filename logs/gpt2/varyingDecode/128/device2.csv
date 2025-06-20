@@ -1,0 +1,259 @@
+State,Rank,Type,Remark,Time
+Prefill,1,Compute,,0.205
+Prefill,1,Communication,Sending token back,0.000
+Decode 1,1,Compute,,0.033
+Decode 1,1,Communication,Sending token back,0.000
+Decode 2,1,Compute,,0.015
+Decode 2,1,Communication,Sending token back,0.000
+Decode 3,1,Compute,,0.021
+Decode 3,1,Communication,Sending token back,0.000
+Decode 4,1,Compute,,0.026
+Decode 4,1,Communication,Sending token back,0.000
+Decode 5,1,Compute,,0.030
+Decode 5,1,Communication,Sending token back,0.001
+Decode 6,1,Compute,,0.029
+Decode 6,1,Communication,Sending token back,0.001
+Decode 7,1,Compute,,0.029
+Decode 7,1,Communication,Sending token back,0.000
+Decode 8,1,Compute,,0.028
+Decode 8,1,Communication,Sending token back,0.000
+Decode 9,1,Compute,,0.029
+Decode 9,1,Communication,Sending token back,0.001
+Decode 10,1,Compute,,0.029
+Decode 10,1,Communication,Sending token back,0.001
+Decode 11,1,Compute,,0.029
+Decode 11,1,Communication,Sending token back,0.000
+Decode 12,1,Compute,,0.029
+Decode 12,1,Communication,Sending token back,0.001
+Decode 13,1,Compute,,0.029
+Decode 13,1,Communication,Sending token back,0.001
+Decode 14,1,Compute,,0.029
+Decode 14,1,Communication,Sending token back,0.000
+Decode 15,1,Compute,,0.029
+Decode 15,1,Communication,Sending token back,0.001
+Decode 16,1,Compute,,0.029
+Decode 16,1,Communication,Sending token back,0.001
+Decode 17,1,Compute,,0.029
+Decode 17,1,Communication,Sending token back,0.001
+Decode 18,1,Compute,,0.029
+Decode 18,1,Communication,Sending token back,0.000
+Decode 19,1,Compute,,0.029
+Decode 19,1,Communication,Sending token back,0.001
+Decode 20,1,Compute,,0.029
+Decode 20,1,Communication,Sending token back,0.000
+Decode 21,1,Compute,,0.030
+Decode 21,1,Communication,Sending token back,0.000
+Decode 22,1,Compute,,0.029
+Decode 22,1,Communication,Sending token back,0.001
+Decode 23,1,Compute,,0.029
+Decode 23,1,Communication,Sending token back,0.000
+Decode 24,1,Compute,,0.029
+Decode 24,1,Communication,Sending token back,0.000
+Decode 25,1,Compute,,0.029
+Decode 25,1,Communication,Sending token back,0.000
+Decode 26,1,Compute,,0.030
+Decode 26,1,Communication,Sending token back,0.001
+Decode 27,1,Compute,,0.030
+Decode 27,1,Communication,Sending token back,0.000
+Decode 28,1,Compute,,0.030
+Decode 28,1,Communication,Sending token back,0.000
+Decode 29,1,Compute,,0.029
+Decode 29,1,Communication,Sending token back,0.000
+Decode 30,1,Compute,,0.030
+Decode 30,1,Communication,Sending token back,0.001
+Decode 31,1,Compute,,0.029
+Decode 31,1,Communication,Sending token back,0.000
+Decode 32,1,Compute,,0.030
+Decode 32,1,Communication,Sending token back,0.000
+Decode 33,1,Compute,,0.030
+Decode 33,1,Communication,Sending token back,0.000
+Decode 34,1,Compute,,0.028
+Decode 34,1,Communication,Sending token back,0.001
+Decode 35,1,Compute,,0.031
+Decode 35,1,Communication,Sending token back,0.001
+Decode 36,1,Compute,,0.024
+Decode 36,1,Communication,Sending token back,0.001
+Decode 37,1,Compute,,0.029
+Decode 37,1,Communication,Sending token back,0.000
+Decode 38,1,Compute,,0.030
+Decode 38,1,Communication,Sending token back,0.001
+Decode 39,1,Compute,,0.030
+Decode 39,1,Communication,Sending token back,0.000
+Decode 40,1,Compute,,0.030
+Decode 40,1,Communication,Sending token back,0.001
+Decode 41,1,Compute,,0.029
+Decode 41,1,Communication,Sending token back,0.001
+Decode 42,1,Compute,,0.030
+Decode 42,1,Communication,Sending token back,0.001
+Decode 43,1,Compute,,0.030
+Decode 43,1,Communication,Sending token back,0.000
+Decode 44,1,Compute,,0.030
+Decode 44,1,Communication,Sending token back,0.001
+Decode 45,1,Compute,,0.029
+Decode 45,1,Communication,Sending token back,0.000
+Decode 46,1,Compute,,0.029
+Decode 46,1,Communication,Sending token back,0.000
+Decode 47,1,Compute,,0.030
+Decode 47,1,Communication,Sending token back,0.000
+Decode 48,1,Compute,,0.030
+Decode 48,1,Communication,Sending token back,0.001
+Decode 49,1,Compute,,0.030
+Decode 49,1,Communication,Sending token back,0.001
+Decode 50,1,Compute,,0.030
+Decode 50,1,Communication,Sending token back,0.001
+Decode 51,1,Compute,,0.030
+Decode 51,1,Communication,Sending token back,0.000
+Decode 52,1,Compute,,0.030
+Decode 52,1,Communication,Sending token back,0.000
+Decode 53,1,Compute,,0.029
+Decode 53,1,Communication,Sending token back,0.001
+Decode 54,1,Compute,,0.030
+Decode 54,1,Communication,Sending token back,0.001
+Decode 55,1,Compute,,0.030
+Decode 55,1,Communication,Sending token back,0.001
+Decode 56,1,Compute,,0.029
+Decode 56,1,Communication,Sending token back,0.001
+Decode 57,1,Compute,,0.030
+Decode 57,1,Communication,Sending token back,0.000
+Decode 58,1,Compute,,0.030
+Decode 58,1,Communication,Sending token back,0.001
+Decode 59,1,Compute,,0.029
+Decode 59,1,Communication,Sending token back,0.001
+Decode 60,1,Compute,,0.029
+Decode 60,1,Communication,Sending token back,0.000
+Decode 61,1,Compute,,0.030
+Decode 61,1,Communication,Sending token back,0.000
+Decode 62,1,Compute,,0.029
+Decode 62,1,Communication,Sending token back,0.001
+Decode 63,1,Compute,,0.030
+Decode 63,1,Communication,Sending token back,0.000
+Decode 64,1,Compute,,0.030
+Decode 64,1,Communication,Sending token back,0.001
+Decode 65,1,Compute,,0.030
+Decode 65,1,Communication,Sending token back,0.001
+Decode 66,1,Compute,,0.030
+Decode 66,1,Communication,Sending token back,0.001
+Decode 67,1,Compute,,0.030
+Decode 67,1,Communication,Sending token back,0.000
+Decode 68,1,Compute,,0.030
+Decode 68,1,Communication,Sending token back,0.001
+Decode 69,1,Compute,,0.030
+Decode 69,1,Communication,Sending token back,0.000
+Decode 70,1,Compute,,0.029
+Decode 70,1,Communication,Sending token back,0.001
+Decode 71,1,Compute,,0.030
+Decode 71,1,Communication,Sending token back,0.001
+Decode 72,1,Compute,,0.030
+Decode 72,1,Communication,Sending token back,0.001
+Decode 73,1,Compute,,0.030
+Decode 73,1,Communication,Sending token back,0.000
+Decode 74,1,Compute,,0.030
+Decode 74,1,Communication,Sending token back,0.001
+Decode 75,1,Compute,,0.031
+Decode 75,1,Communication,Sending token back,0.001
+Decode 76,1,Compute,,0.030
+Decode 76,1,Communication,Sending token back,0.001
+Decode 77,1,Compute,,0.030
+Decode 77,1,Communication,Sending token back,0.000
+Decode 78,1,Compute,,0.031
+Decode 78,1,Communication,Sending token back,0.001
+Decode 79,1,Compute,,0.030
+Decode 79,1,Communication,Sending token back,0.000
+Decode 80,1,Compute,,0.030
+Decode 80,1,Communication,Sending token back,0.000
+Decode 81,1,Compute,,0.030
+Decode 81,1,Communication,Sending token back,0.000
+Decode 82,1,Compute,,0.030
+Decode 82,1,Communication,Sending token back,0.001
+Decode 83,1,Compute,,0.030
+Decode 83,1,Communication,Sending token back,0.000
+Decode 84,1,Compute,,0.030
+Decode 84,1,Communication,Sending token back,0.000
+Decode 85,1,Compute,,0.031
+Decode 85,1,Communication,Sending token back,0.000
+Decode 86,1,Compute,,0.029
+Decode 86,1,Communication,Sending token back,0.001
+Decode 87,1,Compute,,0.030
+Decode 87,1,Communication,Sending token back,0.001
+Decode 88,1,Compute,,0.030
+Decode 88,1,Communication,Sending token back,0.001
+Decode 89,1,Compute,,0.030
+Decode 89,1,Communication,Sending token back,0.000
+Decode 90,1,Compute,,0.030
+Decode 90,1,Communication,Sending token back,0.001
+Decode 91,1,Compute,,0.026
+Decode 91,1,Communication,Sending token back,0.001
+Decode 92,1,Compute,,0.030
+Decode 92,1,Communication,Sending token back,0.001
+Decode 93,1,Compute,,0.031
+Decode 93,1,Communication,Sending token back,0.000
+Decode 94,1,Compute,,0.030
+Decode 94,1,Communication,Sending token back,0.000
+Decode 95,1,Compute,,0.030
+Decode 95,1,Communication,Sending token back,0.000
+Decode 96,1,Compute,,0.031
+Decode 96,1,Communication,Sending token back,0.000
+Decode 97,1,Compute,,0.031
+Decode 97,1,Communication,Sending token back,0.000
+Decode 98,1,Compute,,0.030
+Decode 98,1,Communication,Sending token back,0.000
+Decode 99,1,Compute,,0.031
+Decode 99,1,Communication,Sending token back,0.001
+Decode 100,1,Compute,,0.030
+Decode 100,1,Communication,Sending token back,0.000
+Decode 101,1,Compute,,0.030
+Decode 101,1,Communication,Sending token back,0.000
+Decode 102,1,Compute,,0.016
+Decode 102,1,Communication,Sending token back,0.000
+Decode 103,1,Compute,,0.029
+Decode 103,1,Communication,Sending token back,0.000
+Decode 104,1,Compute,,0.029
+Decode 104,1,Communication,Sending token back,0.000
+Decode 105,1,Compute,,0.030
+Decode 105,1,Communication,Sending token back,0.000
+Decode 106,1,Compute,,0.030
+Decode 106,1,Communication,Sending token back,0.000
+Decode 107,1,Compute,,0.030
+Decode 107,1,Communication,Sending token back,0.001
+Decode 108,1,Compute,,0.031
+Decode 108,1,Communication,Sending token back,0.000
+Decode 109,1,Compute,,0.030
+Decode 109,1,Communication,Sending token back,0.000
+Decode 110,1,Compute,,0.032
+Decode 110,1,Communication,Sending token back,0.000
+Decode 111,1,Compute,,0.030
+Decode 111,1,Communication,Sending token back,0.000
+Decode 112,1,Compute,,0.031
+Decode 112,1,Communication,Sending token back,0.001
+Decode 113,1,Compute,,0.030
+Decode 113,1,Communication,Sending token back,0.000
+Decode 114,1,Compute,,0.031
+Decode 114,1,Communication,Sending token back,0.000
+Decode 115,1,Compute,,0.030
+Decode 115,1,Communication,Sending token back,0.000
+Decode 116,1,Compute,,0.031
+Decode 116,1,Communication,Sending token back,0.000
+Decode 117,1,Compute,,0.031
+Decode 117,1,Communication,Sending token back,0.000
+Decode 118,1,Compute,,0.031
+Decode 118,1,Communication,Sending token back,0.000
+Decode 119,1,Compute,,0.031
+Decode 119,1,Communication,Sending token back,0.000
+Decode 120,1,Compute,,0.031
+Decode 120,1,Communication,Sending token back,0.001
+Decode 121,1,Compute,,0.030
+Decode 121,1,Communication,Sending token back,0.000
+Decode 122,1,Compute,,0.031
+Decode 122,1,Communication,Sending token back,0.000
+Decode 123,1,Compute,,0.030
+Decode 123,1,Communication,Sending token back,0.001
+Decode 124,1,Compute,,0.031
+Decode 124,1,Communication,Sending token back,0.001
+Decode 125,1,Compute,,0.030
+Decode 125,1,Communication,Sending token back,0.000
+Decode 126,1,Compute,,0.031
+Decode 126,1,Communication,Sending token back,0.001
+Decode 127,1,Compute,,0.030
+Decode 127,1,Communication,Sending token back,0.001
+Decode 128,1,Compute,,0.031
+Decode 128,1,Communication,Sending token back,0.001
